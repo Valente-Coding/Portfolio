@@ -77,7 +77,7 @@ function DisplayProject(p_index) {
     if (document.getElementsByClassName("BackgroundVideoFade")[0].classList.contains("ActiveFade"))
         document.getElementsByClassName("BackgroundVideoFade")[0].classList.remove("ActiveFade");
 
-    document.getElementsByClassName("BackgroundVideo")[0].src = "https://valente-coding.github.io/" + l_project.ProjectVideo;
+    document.getElementsByClassName("BackgroundVideo")[0].src = "https://valente-coding.github.io/valente-coding.github.io/" + l_project.ProjectVideo;
 
     // Clear any existing interval to stop auto-advancing when a card is clicked
     if (window.projectInterval) {
