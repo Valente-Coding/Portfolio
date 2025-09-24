@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Gonçalo Valente | Portfolio</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6e864576f6.js" crossorigin="anonymous"></script>
+
+        <link rel='stylesheet' type='text/css' media='screen' href='fonts.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='animations.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+        <script src='Scripts/ProjectTimelineHandler.js'></script>
+    </head>
+    <body>
+        <div class="BackgroundVideoContainer">
+                <video autoplay muted loop class="BackgroundVideo" src="Videos/MarmadeSushi.mp4"></video>
+        </div>
+        <div class="BackgroundVideoShadow"></div>
+        <div class="BackgroundVideoFade"></div>
+        <div class="MainContainer">
+            <div class="TopBarContianer">
+                <div class="TopBarLogo bebas-neue-regular">Gonçalo Valente</div>
+                <div class="TopBarButton martel-sans-semibold Selected">Home</div>
+                <div class="TopBarButton martel-sans-semibold">Resumé</div>
+                <div class="TopBarButton martel-sans-semibold">Contact</div>
+            </div>
+
+            <div class="VideoInfoContainer">
+                <div class="VideoInfoTitle bebas-neue-regular">Mar Made Sushi</div>
+                <div class="VideoInfoDesc martel-sans-semibold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci laborum recusandae, eum alias modi consequuntur quae corrupti fuga nostrum, nesciunt natus nihil assumenda maxime exercitationem. Dolore voluptates ad dolor perspiciatis.</div>
+                <div class="VideoInfoButtons">
+                    <div class="VideoInfoButton VideoInfoPlayButton martel-sans-bold"><i class="fa-solid fa-play"></i> <span class="PlayVideoText">Video</span></div>
+                    <div class="VideoInfoButton VideoInfoMoreButton martel-sans-bold"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="MoreText">More Info</span></div>
+                </div>
+            </div>
+
+            <div class="ProjectsTimelineContainer">
+                <div class="ProjectTimelineCard ActiveProjectCard">
+                    <div class="ProjectTimelineLine">
+                        <div class="ProjectTimelineLineProgress"></div>
+                    </div>
+                    
+                    <div class="ProjectTimelineCardInfo">
+                        <div class="ProjectTimelineImage" style="background-image: url('Images/MarMadeSushi.png');"></div>
+                        <div class="ProjectTimelineInfoContainer">
+                            <div class="ProjectTimelineTitle bebas-neue-regular">Mar Made Sushi</div>
+                            <div class="ProjectTimelineGameTags martel-sans-bold">Multiplayer</br>Strategy</br>Prototype</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ProjectTimelineCard">
+                    <div class="ProjectTimelineLine">
+                        <div class="ProjectTimelineLineProgress"></div>
+                    </div>
+                    
+                    <div class="ProjectTimelineCardInfo">
+                        <div class="ProjectTimelineImage" style="background-image: url('Images/3x4_placeholder.jpg');"></div>
+                        <div class="ProjectTimelineInfoContainer">
+                            <div class="ProjectTimelineTitle bebas-neue-regular">Deep Anomaly</div>
+                            <div class="ProjectTimelineGameTags martel-sans-bold">Local Multiplayer</br>Party</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

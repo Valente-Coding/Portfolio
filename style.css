@@ -1,0 +1,241 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: white;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* BACKGROUND VIDEO */
+
+.BackgroundVideoContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.BackgroundVideo {
+    width: 100%;
+}
+
+.BackgroundVideoShadow {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg,rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 20%, rgba(255, 255, 255, 0) 100%);
+}
+
+.BackgroundVideoFade {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    background-color: black;
+    transition: opacity 1s;
+}
+
+.BackgroundVideoFade.ActiveFade  {
+    opacity: 1;
+}
+
+/* MAIN CONTAINER */
+
+.MainContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: 7% 68% 25%;
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+
+/* TOP BAR */
+
+.TopBarContianer {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 2vw;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.5vh;
+    padding-top: 2vh;
+}
+
+.TopBarLogo {
+    font-size: 3vh;
+}
+
+.TopBarButton {
+    cursor: pointer;
+    color: rgb(170, 170, 170);
+    transition: color 0.3s;
+}
+
+.TopBarButton:hover {
+    color: white;
+}
+
+.TopBarButton.Selected {
+    color: white;
+}
+
+/* VIDEO INFO */
+
+.VideoInfoContainer {
+    display: grid;
+    justify-content: start;
+    align-content: center;
+    align-items: center;
+    grid-auto-flow: row;
+    row-gap: 2vh;
+}
+
+.VideoInfoTitle {
+    width: 25vw;
+    font-size: 6vh;
+}
+
+.VideoInfoDesc {
+    width: 30vw;
+    font-size: 2vh;
+    -webkit-text-stroke: 0.03vh black;
+}
+
+.VideoInfoButtons {
+    width: 15vw;
+    height: 5vh;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 1vw;
+}
+
+.VideoInfoButton {
+    display: grid;
+    place-items: center;
+    grid-auto-flow: column;
+    justify-content: center;
+    column-gap: 0.5vw;
+    border-radius: 0.2vw;
+    font-size: 2vh;
+}
+
+.VideoInfoPlayButton {
+    background-color: white;
+    color: black;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.VideoInfoPlayButton:hover {
+    box-shadow: white 0px 0px 10px 0px;
+}
+
+.VideoInfoPlayButton i {
+    color: black;
+}
+
+.VideoInfoPlayButton .PlayVideoText {
+    margin-top: 0.4vh;
+    color: black;
+}
+
+.VideoInfoMoreButton {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.VideoInfoMoreButton:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.VideoInfoMoreButton i {
+    color: white;
+}
+
+.VideoInfoMoreButton .MoreText {
+    margin-top: 0.4vh;
+    color: white;
+}
+
+/* Projects Timeline */
+
+.ProjectsTimelineContainer {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 0.5vw;
+}
+
+.ProjectTimelineCard {
+    width: 100%;
+    height: 100%;
+}
+
+.ProjectTimelineLine {
+    width: 100%;
+    height: 0.5vh;
+    background-color: gray;
+}
+
+.ProjectTimelineLineProgress {
+    height: 100%;
+}
+
+.ProjectTimelineCard.ActiveProjectCard .ProjectTimelineLineProgress {
+    width: 100%;
+    background-color: white;
+    animation: TimeLineBar 20s linear;
+}
+
+.ProjectTimelineCard.BeforeActiveProjectCard .ProjectTimelineLineProgress {
+    width: 100%;
+    background-color: white;
+}
+
+.ProjectTimelineCardInfo {
+    width: 100%;
+    height: 80%;
+    margin-top: 5%;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    column-gap: 1vw;
+}
+
+.ProjectTimelineImage {
+    width: 7vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.5vh;
+}
+
+.ProjectTimelineCard.ActiveProjectCard .ProjectTimelineImage {
+    border: white 0.3vh solid;
+}
+
+.ProjectTimelineCard.ActiveProjectCard .ProjectTimelineImage::before {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 50px 5px;
+    border-radius: 0.5vh;
+}
+
+.ProjectTimelineTitle {
+    width: 100%;
+    font-size: 3vh;
+}
