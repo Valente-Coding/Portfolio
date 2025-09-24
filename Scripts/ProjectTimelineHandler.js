@@ -4,7 +4,7 @@ var Projects = [
         "ProjectDescription": "Mar Made Sushi is a fun multiplayer prototype where players must work together to manage a bustling restaurant. Collaborate with your teammates to fish for ingredients, cook delicious dishes, and host clients efficiently. Teamwork and coordination are key to keeping the restaurant running smoothly and satisfying your customers.",
         "ProjectTags": ["Multiplayer", "Strategy", "Unity", "C#"],
         "ProjectImage": "Images/MarMadeSushi.png",
-        "ProjectVideo": "Videos/MarMadeSushi.mp4",
+        "ProjectVideo": "Images/MarMadeSushi.mp4",
         "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
         "ProjectSourceLink": "",
     },
@@ -13,7 +13,7 @@ var Projects = [
         "ProjectDescription": "Deep Anomaly is a thrilling local multiplayer party game where players must work together to uncover the mysteries of a strange underwater world. Explore the depths, solve puzzles, and outsmart your friends in a race against time.",
         "ProjectTags": ["Local Multiplayer", "Party", "Unity", "C#"],
         "ProjectImage": "Images/DeepAnomaly.png",
-        "ProjectVideo": "Videos/DeepAnomaly.mp4",
+        "ProjectVideo": "Images/DeepAnomaly.mp4",
         "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
         "ProjectSourceLink": "",
     }
@@ -77,7 +77,7 @@ function DisplayProject(p_index) {
     if (document.getElementsByClassName("BackgroundVideoFade")[0].classList.contains("ActiveFade"))
         document.getElementsByClassName("BackgroundVideoFade")[0].classList.remove("ActiveFade");
 
-    document.getElementsByClassName("BackgroundVideo")[0].src = "https://github.com/Valente-Coding/Portfolio/raw/refs/heads/main/" + l_project.ProjectVideo;
+    document.getElementsByClassName("BackgroundVideo")[0].src = l_project.ProjectVideo;
 
     // Clear any existing interval to stop auto-advancing when a card is clicked
     if (window.projectInterval) {
