@@ -16,6 +16,15 @@ var Projects = [
         "ProjectVideo": "Images/DeepAnomaly.mp4",
         "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
         "ProjectSourceLink": "",
+    },
+    {
+        "ProjectName": "Mix & Serve",
+        "ProjectDescription": "In Mix & Serve you impersonate a bartender in a busy bar. You must quickly mix and serve drinks to your customers while managing your time and resources effectively. Your goal is to have enough money to pay your rent at the end of the day.",
+        "ProjectTags": ["Local Multiplayer", "Party", "Unity", "C#"],
+        "ProjectImage": "Images/MixAndServe.png",
+        "ProjectVideo": "Images/MixAndServe.mp4",
+        "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
+        "ProjectSourceLink": "",
     }
 ]
 
