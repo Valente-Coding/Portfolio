@@ -2,7 +2,7 @@ var Projects = [
     {
         "ProjectName": "Mar Made Sushi",
         "ProjectDescription": "Mar Made Sushi is a fun multiplayer prototype where players must work together to manage a bustling restaurant. Collaborate with your teammates to fish for ingredients, cook delicious dishes, and host clients efficiently. Teamwork and coordination are key to keeping the restaurant running smoothly and satisfying your customers.",
-        "ProjectTags": ["Multiplayer", "Strategy", "Unity", "C#"],
+        "ProjectTags": ["Multiplayer", "Strategy", "Unity", "University Project"],
         "ProjectImage": "Images/MarMadeSushi.png",
         "ProjectVideo": "Images/MarMadeSushi.mp4",
         "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
@@ -11,19 +11,28 @@ var Projects = [
     {
         "ProjectName": "Deep Anomaly",
         "ProjectDescription": "Deep Anomaly is a thrilling local multiplayer party game where players must work together to uncover the mysteries of a strange underwater world. Explore the depths, solve puzzles, and outsmart your friends in a race against time.",
-        "ProjectTags": ["Local Multiplayer", "Party", "Unity", "C#"],
+        "ProjectTags": ["Local Multiplayer", "Party", "Unity", "Game Jam"],
         "ProjectImage": "Images/DeepAnomaly.png",
         "ProjectVideo": "Images/DeepAnomaly.mp4",
-        "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
+        "ProjectVideoLink": "",
         "ProjectSourceLink": "",
     },
     {
         "ProjectName": "Mix & Serve",
         "ProjectDescription": "In Mix & Serve you impersonate a bartender in a busy bar. You must quickly mix and serve drinks to your customers while managing your time and resources effectively. Your goal is to have enough money to pay your rent at the end of the day.",
-        "ProjectTags": ["Local Multiplayer", "Party", "Unity", "C#"],
+        "ProjectTags": ["", "Party", "Unity", "Game Jam"],
         "ProjectImage": "Images/MixAndServe.png",
         "ProjectVideo": "Images/MixAndServe.mp4",
-        "ProjectVideoLink": "https://youtu.be/4pTJCFrdATc",
+        "ProjectVideoLink": "",
+        "ProjectSourceLink": "",
+    },
+    {
+        "ProjectName": "Comedy Showdown",
+        "ProjectDescription": "Your goal is to provide jokes to different people based on their likings. Each person has a different sense of humor, so you must choose the right joke to make them laugh. If you tell a joke that they don't like, they will get angry. If you fail atleast 3 times, you lose the game.",
+        "ProjectTags": ["Singleplayer", "Comedy", "Unity", "Game Jam"],
+        "ProjectImage": "Images/ComedyShowdown.png",
+        "ProjectVideo": "Images/ComedyShowdown.mp4",
+        "ProjectVideoLink": "",
         "ProjectSourceLink": "",
     }
 ]
