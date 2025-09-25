@@ -13,7 +13,7 @@ var Projects = [
         "ProjectDescription": "Deep Anomaly is a thrilling local multiplayer party game where players must work together to uncover the mysteries of a strange underwater world. Explore the depths, solve puzzles, and outsmart your friends in a race against time.",
         "ProjectTags": ["Local Multiplayer", "Party", "Unity", "Game Jam"],
         "ProjectImage": "Images/DeepAnomaly.png",
-        "ProjectVideo": "Images/MarMadeSushi.mp4",
+        "ProjectVideo": "Images/DeepAnomaly.mp4",
         "ProjectVideoLink": "",
         "ProjectSourceLink": "",
     },
