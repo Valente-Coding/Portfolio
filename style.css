@@ -152,6 +152,7 @@ body {
 .VideoInfoPlayButton .PlayVideoText {
     margin-top: 0.4vh;
     color: black;
+    user-select: none;
 }
 
 .VideoInfoMoreButton {
@@ -172,16 +173,13 @@ body {
 .VideoInfoMoreButton .MoreText {
     margin-top: 0.4vh;
     color: white;
+    user-select: none;
 }
 
 /* Projects Timeline */
 
 .ProjectsTimelineContainer {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(5, 1fr);
-    column-gap: 0.5vw;
-
+    width: 92vw;
     transition: opacity 0.5s, transform 0.5s;
 }
 
@@ -190,8 +188,25 @@ body {
     transform: translateY(10px);
 }
 
-.ProjectTimelineCard {
+.ProjectsTimelineContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.ProjectsTimelineList {
     width: 100%;
+    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 0.5vw;
+    overflow-x: scroll;
+    justify-content: start;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.ProjectTimelineCard {
+    width: 20vw;
     height: 100%;
 }
 
@@ -208,7 +223,7 @@ body {
 .ProjectTimelineCard.ActiveProjectCard .ProjectTimelineLineProgress {
     width: 100%;
     background-color: white;
-    animation: TimeLineBar 20s linear;
+    animation: TimeLineBar 10s linear;
 }
 
 .ProjectTimelineCard.BeforeActiveProjectCard .ProjectTimelineLineProgress {

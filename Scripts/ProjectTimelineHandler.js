@@ -22,7 +22,7 @@ var Projects = [
         "ProjectDescription": "In Mix & Serve you impersonate a bartender in a busy bar. You must quickly mix and serve drinks to your customers while managing your time and resources effectively. Your goal is to have enough money to pay your rent at the end of the day.",
         "ProjectTags": ["Singleplayer", "Simulation", "Unity", "Game Jam"],
         "ProjectImage": "Images/MixAndServe.png",
-        "ProjectVideo": "Images/MixAndServe.mp4",
+        "ProjectVideo": "Images/MarMadeSushi.mp4",
         "ProjectVideoLink": "",
         "ProjectSourceLink": "",
     },
@@ -31,14 +31,32 @@ var Projects = [
         "ProjectDescription": "Your goal is to provide jokes to different people based on their likings. Each person has a different sense of humor, so you must choose the right joke to make them laugh. If you tell a joke that they don't like, they will get angry. If you fail atleast 3 times, you lose the game.",
         "ProjectTags": ["Singleplayer", "Comedy", "Unity", "Game Jam"],
         "ProjectImage": "Images/ComedyShowdown.png",
-        "ProjectVideo": "Images/ComedyShowdown.mp4",
+        "ProjectVideo": "Images/MarMadeSushi.mp4",
+        "ProjectVideoLink": "",
+        "ProjectSourceLink": "",
+    },
+    {
+        "ProjectName": "Sudoku 48H",
+        "ProjectDescription": "Sudoku48H is a project developed as part of a 48-hour challenge to test the developer's skills. The objective was to create a functional Sudoku game in Unity without referencing online resources. The project was completed in under 14 hours, with a significant portion of time spent refining the UI rather than the core game logic.",
+        "ProjectTags": ["Singleplayer", "Strategy", "Challenge"],
+        "ProjectImage": "Images/Sudoku48h.png",
+        "ProjectVideo": "Images/MarMadeSushi.mp4",
+        "ProjectVideoLink": "",
+        "ProjectSourceLink": "",
+    },
+    {
+        "ProjectName": "Sudoku 48H",
+        "ProjectDescription": "Sudoku48H is a project developed as part of a 48-hour challenge to test the developer's skills. The objective was to create a functional Sudoku game in Unity without referencing online resources. The project was completed in under 14 hours, with a significant portion of time spent refining the UI rather than the core game logic.",
+        "ProjectTags": ["Singleplayer", "Strategy", "Challenge"],
+        "ProjectImage": "Images/Sudoku48h.png",
+        "ProjectVideo": "Images/MarMadeSushi.mp4",
         "ProjectVideoLink": "",
         "ProjectSourceLink": "",
     }
 ]
 
 function LoadProjects() {
-    let l_timelineContainer = document.getElementsByClassName("ProjectsTimelineContainer")[0];
+    let l_timelineContainer = document.getElementsByClassName("ProjectsTimelineList")[0];
 
     l_timelineContainer.innerHTML = "";
 
@@ -62,6 +80,8 @@ function LoadProjects() {
 
         l_timelineContainer.innerHTML += l_card;
     }
+
+    l_timelineContainer.addEventListener('wheel', TransformScrollSideways);
 
     LoadProject(0);
 }
@@ -90,7 +110,9 @@ function DisplayProject(p_index) {
             l_cards[i].classList.remove("BeforeActiveProjectCard");
     }
 
-    document.getElementsByClassName("ProjectTimelineCard")[p_index].classList.add("ActiveProjectCard");
+    l_cards[p_index].classList.add("ActiveProjectCard");
+    
+    scrollIntoViewHorizontally(document.getElementsByClassName("ProjectsTimelineList"), l_cards[p_index]);
 
     if (document.getElementsByClassName("BackgroundVideoFade")[0].classList.contains("ActiveFade"))
         document.getElementsByClassName("BackgroundVideoFade")[0].classList.remove("ActiveFade");
@@ -106,7 +128,7 @@ function DisplayProject(p_index) {
         setTimeout(() => {
             LoadProject(p_index == Projects.length - 1 ? 0 : p_index + 1);
         }, 1000);
-    }, 20000);
+    }, 10000);
 }
 
 function LoadProject(p_index) {
@@ -130,3 +152,27 @@ function StartTimeline() {
 window.addEventListener("load", (event) => {
   LoadProjects();
 });
+
+function TransformScrollSideways(event) {
+    if (!event.deltaY) {
+        return;
+    }
+
+    event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
+    event.preventDefault();
+}
+
+const scrollIntoViewHorizontally = (container, child) => {
+    const childOffsetLeft2 = child.offsetLeft + child.offsetWidth;
+    const containerScrollLeft2 = container.scrollLeft + container.offsetWidth;
+  
+    // is child behind (left)
+    if (container.scrollLeft > child.offsetLeft) {
+      container.scrollLeft = child.offsetLeft;
+    }
+  
+    // is child ahead (right)
+    if (containerScrollLeft2 < childOffsetLeft2) {
+      container.scrollLeft += childOffsetLeft2 - containerScrollLeft2;
+    }
+};
