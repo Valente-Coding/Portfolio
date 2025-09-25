@@ -22,7 +22,7 @@ var Projects = [
         "ProjectDescription": "In Mix & Serve you impersonate a bartender in a busy bar. You must quickly mix and serve drinks to your customers while managing your time and resources effectively. Your goal is to have enough money to pay your rent at the end of the day.",
         "ProjectTags": ["Singleplayer", "Simulation", "Unity", "Game Jam"],
         "ProjectImage": "Images/MixAndServe.png",
-        "ProjectVideo": "Images/MarMadeSushi.mp4",
+        "ProjectVideo": "Images/MixAndServeFast.mp4",
         "ProjectVideoLink": "",
         "ProjectSourceLink": "",
     },
