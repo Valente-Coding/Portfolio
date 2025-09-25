@@ -96,6 +96,13 @@ body {
     align-items: center;
     grid-auto-flow: row;
     row-gap: 2vh;
+
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.VideoInfoContainer.Unloaded {
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .VideoInfoTitle {
@@ -174,6 +181,13 @@ body {
     grid-auto-flow: column;
     grid-template-columns: repeat(5, 1fr);
     column-gap: 0.5vw;
+
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.ProjectsTimelineContainer.Unloaded {
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .ProjectTimelineCard {

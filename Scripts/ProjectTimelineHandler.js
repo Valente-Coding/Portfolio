@@ -13,7 +13,7 @@ var Projects = [
         "ProjectDescription": "Deep Anomaly is a thrilling local multiplayer party game where players must work together to uncover the mysteries of a strange underwater world. Explore the depths, solve puzzles, and outsmart your friends in a race against time.",
         "ProjectTags": ["Local Multiplayer", "Party", "Unity", "Game Jam"],
         "ProjectImage": "Images/DeepAnomaly.png",
-        "ProjectVideo": "Images/DeepAnomaly.mp4",
+        "ProjectVideo": "Images/MarMadeSushi.mp4",
         "ProjectVideoLink": "",
         "ProjectSourceLink": "",
     },
@@ -46,7 +46,7 @@ function LoadProjects() {
         let l_project = Projects[i];
 
         let l_card = 
-        '<div class="ProjectTimelineCard" onmouseup="DisplayProject(' + i + ')">'+
+        '<div class="ProjectTimelineCard" onmouseup="LoadProject(' + i + ')">'+
             '<div class="ProjectTimelineLine">'+
                 '<div class="ProjectTimelineLineProgress"></div>'+
             '</div>'+
@@ -63,7 +63,7 @@ function LoadProjects() {
         l_timelineContainer.innerHTML += l_card;
     }
 
-    DisplayProject(0);
+    LoadProject(0);
 }
 
 function DisplayProject(p_index) {
@@ -95,19 +95,32 @@ function DisplayProject(p_index) {
     if (document.getElementsByClassName("BackgroundVideoFade")[0].classList.contains("ActiveFade"))
         document.getElementsByClassName("BackgroundVideoFade")[0].classList.remove("ActiveFade");
 
-    document.getElementsByClassName("BackgroundVideo")[0].src = "https://valente-coding.github.io/" + l_project.ProjectVideo;
-
     // Clear any existing interval to stop auto-advancing when a card is clicked
     if (window.projectInterval) {
         clearInterval(window.projectInterval);
     }
 
     window.projectInterval = setInterval(() => {
+        document.getElementsByClassName("VideoInfoContainer")[0].classList.add("Unloaded")
         document.getElementsByClassName("BackgroundVideoFade")[0].classList.add("ActiveFade");
         setTimeout(() => {
-            DisplayProject(p_index == Projects.length - 1 ? 0 : p_index + 1);
+            LoadProject(p_index == Projects.length - 1 ? 0 : p_index + 1);
         }, 1000);
     }, 20000);
+}
+
+function LoadProject(p_index) {
+    let l_project = Projects[p_index];
+
+    var l_video = document.getElementsByClassName("BackgroundVideo")[0]
+    l_video.src = "https://valente-coding.github.io/" + l_project.ProjectVideo;
+    l_video.load();
+
+    l_video.addEventListener('loadeddata', function() {
+        document.getElementsByClassName("ProjectsTimelineContainer")[0].classList.remove("Unloaded")
+        document.getElementsByClassName("VideoInfoContainer")[0].classList.remove("Unloaded")
+        DisplayProject(p_index);
+    }, false); 
 }
 
 function StartTimeline() {
