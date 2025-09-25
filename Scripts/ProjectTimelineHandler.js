@@ -43,15 +43,6 @@ var Projects = [
         "ProjectVideo": "Images/MarMadeSushi.mp4",
         "ProjectVideoLink": "",
         "ProjectSourceLink": "",
-    },
-    {
-        "ProjectName": "Sudoku 48H",
-        "ProjectDescription": "Sudoku48H is a project developed as part of a 48-hour challenge to test the developer's skills. The objective was to create a functional Sudoku game in Unity without referencing online resources. The project was completed in under 14 hours, with a significant portion of time spent refining the UI rather than the core game logic.",
-        "ProjectTags": ["Singleplayer", "Strategy", "Challenge"],
-        "ProjectImage": "Images/Sudoku48h.png",
-        "ProjectVideo": "Images/MarMadeSushi.mp4",
-        "ProjectVideoLink": "",
-        "ProjectSourceLink": "",
     }
 ]
 
@@ -112,7 +103,7 @@ function DisplayProject(p_index) {
 
     l_cards[p_index].classList.add("ActiveProjectCard");
     
-    scrollIntoViewHorizontally(document.getElementsByClassName("ProjectsTimelineList"), l_cards[p_index]);
+    scrollIntoViewHorizontally(document.getElementsByClassName("ProjectsTimelineList")[0], l_cards[p_index]);
 
     if (document.getElementsByClassName("BackgroundVideoFade")[0].classList.contains("ActiveFade"))
         document.getElementsByClassName("BackgroundVideoFade")[0].classList.remove("ActiveFade");
@@ -165,14 +156,15 @@ function TransformScrollSideways(event) {
 const scrollIntoViewHorizontally = (container, child) => {
     const childOffsetLeft2 = child.offsetLeft + child.offsetWidth;
     const containerScrollLeft2 = container.scrollLeft + container.offsetWidth;
-  
+    const extraMargin = parseFloat(window.getComputedStyle(document.getElementsByClassName("ProjectsTimelineList")[0], "::after").getPropertyValue("width").replace("px", ""));
+
     // is child behind (left)
     if (container.scrollLeft > child.offsetLeft) {
-      container.scrollLeft = child.offsetLeft;
+      container.scrollLeft = child.offsetLeft - extraMargin;
     }
   
     // is child ahead (right)
     if (containerScrollLeft2 < childOffsetLeft2) {
-      container.scrollLeft += childOffsetLeft2 - containerScrollLeft2;
+      container.scrollLeft += childOffsetLeft2 - containerScrollLeft2 + extraMargin;
     }
 };

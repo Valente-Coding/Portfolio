@@ -179,8 +179,9 @@ body {
 /* Projects Timeline */
 
 .ProjectsTimelineContainer {
-    width: 92vw;
+    width: 96vw;
     transition: opacity 0.5s, transform 0.5s;
+    margin-left: -4vw;
 }
 
 .ProjectsTimelineContainer.Unloaded {
@@ -200,9 +201,16 @@ body {
     column-gap: 0.5vw;
     overflow-x: scroll;
     justify-content: start;
-
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    padding-left: 4vw;
+}
+
+.ProjectsTimelineList::after {
+    content: '';
+    width: 4vw;
+    height: 100%;
+    display: block;
 }
 
 .ProjectTimelineCard {
