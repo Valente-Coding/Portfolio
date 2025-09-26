@@ -130,6 +130,7 @@ function LoadProject(p_index) {
     l_video.load();
 
     l_video.addEventListener('loadeddata', function() {
+        document.getElementsByClassName("WebsiteLoadingScreen")[0].classList.remove("Active");
         document.getElementsByClassName("ProjectsTimelineContainer")[0].classList.remove("Unloaded")
         document.getElementsByClassName("VideoInfoContainer")[0].classList.remove("Unloaded")
         DisplayProject(p_index);
@@ -141,7 +142,7 @@ function StartTimeline() {
 }
 
 window.addEventListener("load", (event) => {
-  LoadProjects();
+    LoadProjects();
 });
 
 function TransformScrollSideways(event) {

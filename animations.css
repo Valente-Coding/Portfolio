@@ -4,3 +4,17 @@
   from { width: 0%; }
   to { width: 100%; }
 }
+
+@keyframes Loading {
+  0%    { content: ''; }
+  10%   { content: 'V'; }
+  20%   { content: 'Va'; }
+  30%   { content: 'Val'; }
+  40%   { content: 'Vale'; }
+  50%   { content: 'Valen'; }
+  60%   { content: 'Valent'; }
+  70%   { content: 'Valente'; }
+  80%   { content: 'Valente'; }
+  90%   { content: 'Valente'; }
+  100%  { content: 'Valente'; }
+}

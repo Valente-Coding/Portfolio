@@ -276,3 +276,32 @@ body {
     width: 100%;
     font-size: 3vh;
 }
+
+
+/* LOADING SCREEN */
+.WebsiteLoadingScreen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: grid;
+    place-items: center;
+    transition: opacity 0.5s;
+    opacity: 0%;
+}
+
+.WebsiteLoadingScreen.Active {
+    opacity: 100%;
+    pointer-events: none;
+}
+
+.WebsiteLoadingText {
+    position: absolute;
+    font-size: 30vh;
+    color: rgb(30, 30, 30);
+}
+
+.WebsiteLoadingText::after {
+    content: '';
+    animation: Loading 1.5s step-end infinite alternate;
+}
