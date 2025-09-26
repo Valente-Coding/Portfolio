@@ -1,7 +1,7 @@
 var Projects = [
     {
         "ProjectName": "Mar Made Sushi",
-        "ProjectDescription": "Mar Made Sushi is a fun multiplayer prototype where players must work together to manage a bustling restaurant. Collaborate with your teammates to fish for ingredients, cook delicious dishes, and host clients efficiently. Teamwork and coordination are key to keeping the restaurant running smoothly and satisfying your customers.",
+        "ProjectDescription": "Mar Made Sushi is a fun multiplayer prototype where players must work together to manage a restaurant. Collaborate with your teammates to fish for ingredients, cook delicious dishes, and host clients efficiently. Teamwork and coordination are key to keeping the restaurant running smoothly and satisfying your customers.",
         "ProjectTags": ["Multiplayer", "Strategy", "Unity", "University Project"],
         "ProjectImage": "Images/MarMadeSushi.png",
         "ProjectVideo": "Images/MarMadeSushi.mp4",
@@ -10,7 +10,7 @@ var Projects = [
     },
     {
         "ProjectName": "Deep Anomaly",
-        "ProjectDescription": "Deep Anomaly is a thrilling local multiplayer party game where players must work together to uncover the mysteries of a strange underwater world. Explore the depths, solve puzzles, and outsmart your friends in a race against time.",
+        "ProjectDescription": "Deep Anomaly is a local multiplayer party game where players must compete to catch the most fish avoiding the ones with anomalies.",
         "ProjectTags": ["Local Multiplayer", "Party", "Unity", "Game Jam"],
         "ProjectImage": "Images/DeepAnomaly.png",
         "ProjectVideo": "Images/DeepAnomaly.mp4",
