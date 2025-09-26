@@ -28,7 +28,7 @@ var Projects = [
     },
     {
         "ProjectName": "Comedy Showdown",
-        "ProjectDescription": "Your goal is to provide jokes to different people based on their likings. Each person has a different sense of humor, so you must choose the right joke to make them laugh. If you tell a joke that they don't like, they will get angry. If you fail atleast 3 times, you lose the game.",
+        "ProjectDescription": "Your goal is to provide jokes to different people based on their likings. Each person has a different sense of humor, so you must choose the right joke to make them laugh. If you tell a joke that they don't like, they will get angry. If you fail at least 3 times, you lose the game.",
         "ProjectTags": ["Singleplayer", "Comedy", "Unity", "Game Jam"],
         "ProjectImage": "Images/ComedyShowdown.png",
         "ProjectVideo": "Images/Placeholder.mp4",
