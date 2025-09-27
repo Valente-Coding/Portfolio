@@ -288,11 +288,11 @@ body {
     place-items: center;
     transition: opacity 0.5s;
     opacity: 0%;
+    pointer-events: none;
 }
 
 .WebsiteLoadingScreen.Active {
     opacity: 100%;
-    pointer-events: none;
 }
 
 .WebsiteLoadingText {

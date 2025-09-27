@@ -87,9 +87,7 @@ function DisplayProject(p_index) {
     document.getElementsByClassName("VideoInfoMoreButton")[0].dataset.source = l_project.ProjectSourceLink;
 
     // Remove active class from previous active card
-    let l_activeCards = document.getElementsByClassName("ActiveProjectCard");
-    if (l_activeCards.length > 0)
-        l_activeCards[0].classList.remove("ActiveProjectCard");
+    document.getElementsByClassName("ActiveProjectCard")[0]?.classList.remove("ActiveProjectCard");
 
     // Add BeforeActiveProjectCard class to all previous cards
     let l_cards = document.getElementsByClassName("ProjectTimelineCard");
@@ -103,7 +101,7 @@ function DisplayProject(p_index) {
 
     l_cards[p_index].classList.add("ActiveProjectCard");
     
-    scrollIntoViewHorizontally(document.getElementsByClassName("ProjectsTimelineList")[0], l_cards[p_index]);
+    ScrollIntoViewHorizontally(document.getElementsByClassName("ProjectsTimelineList")[0], l_cards[p_index]);
 
     if (document.getElementsByClassName("BackgroundVideoFade")[0].classList.contains("ActiveFade"))
         document.getElementsByClassName("BackgroundVideoFade")[0].classList.remove("ActiveFade");
@@ -126,8 +124,20 @@ function LoadProject(p_index) {
     let l_project = Projects[p_index];
 
     var l_video = document.getElementsByClassName("BackgroundVideo")[0]
+
+    if (l_video.src.includes(l_project.ProjectVideo)) {
+        l_video.pause();
+        l_video.currentTime = 0;
+        l_video.load();
+
+        ReloadCurrentProject(p_index);
+        return;
+    }
+
     l_video.src = "https://valente-coding.github.io/" + l_project.ProjectVideo;
     l_video.load();
+
+    RecreateNode(l_video);
 
     l_video.addEventListener('loadeddata', function() {
         document.getElementsByClassName("WebsiteLoadingScreen")[0].classList.remove("Active");
@@ -137,8 +147,27 @@ function LoadProject(p_index) {
     }, false); 
 }
 
-function StartTimeline() {
+function ReloadCurrentProject(p_index) {
+    var l_activeCardTimelineBar = document.getElementsByClassName("ActiveProjectCard")[0].getElementsByClassName("ProjectTimelineLineProgress")[0];
+    if (!l_activeCardTimelineBar) return;
 
+    // Restart the animation
+    l_activeCardTimelineBar.style.animation = 'none';
+    l_activeCardTimelineBar.offsetHeight; // Trigger a reflow, flushing the CSS changes
+    l_activeCardTimelineBar.style.animation = null;
+
+    // Clear any existing interval to stop auto-advancing when a card is clicked
+    if (window.projectInterval) {
+        clearInterval(window.projectInterval);
+    }
+
+    window.projectInterval = setInterval(() => {
+        document.getElementsByClassName("VideoInfoContainer")[0].classList.add("Unloaded")
+        document.getElementsByClassName("BackgroundVideoFade")[0].classList.add("ActiveFade");
+        setTimeout(() => {
+            LoadProject(p_index == Projects.length - 1 ? 0 : p_index + 1);
+        }, 1000);
+    }, 10000);
 }
 
 window.addEventListener("load", (event) => {
@@ -154,18 +183,28 @@ function TransformScrollSideways(event) {
     event.preventDefault();
 }
 
-const scrollIntoViewHorizontally = (container, child) => {
-    const childOffsetLeft2 = child.offsetLeft + child.offsetWidth;
-    const containerScrollLeft2 = container.scrollLeft + container.offsetWidth;
-    const extraMargin = parseFloat(window.getComputedStyle(document.getElementsByClassName("ProjectsTimelineList")[0], "::after").getPropertyValue("width").replace("px", ""));
+const ScrollIntoViewHorizontally = (p_container, p_child) => {
+    const l_childOffsetLeft2 = p_child.offsetLeft + p_child.offsetWidth;
+    const l_containerScrollLeft2 = p_container.scrollLeft + p_container.offsetWidth;
+    const l_extraMargin = parseFloat(window.getComputedStyle(document.getElementsByClassName("ProjectsTimelineList")[0], "::after").getPropertyValue("width").replace("px", ""));
 
-    // is child behind (left)
-    if (container.scrollLeft > child.offsetLeft) {
-      container.scrollLeft = child.offsetLeft - extraMargin;
-    }
-  
-    // is child ahead (right)
-    if (containerScrollLeft2 < childOffsetLeft2) {
-      container.scrollLeft += childOffsetLeft2 - containerScrollLeft2 + extraMargin;
-    }
+    p_container.scroll({
+        left: l_childOffsetLeft2 - l_containerScrollLeft2 + l_extraMargin,
+        top: 0,
+        behavior: 'smooth'
+    })
 };
+
+
+function RecreateNode(l_element, l_withChildren) {
+    if (l_withChildren) 
+    {
+        l_element.parentNode.replaceChild(l_element.cloneNode(true), l_element);
+    }
+    else 
+    {
+        var l_newEl = l_element.cloneNode(false);
+        while (l_element.hasChildNodes()) l_newEl.appendChild(l_element.firstChild);
+            l_element.parentNode.replaceChild(l_newEl, l_element);
+    }
+}
