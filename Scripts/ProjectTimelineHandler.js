@@ -124,10 +124,10 @@ function LoadProject(p_index) {
     let l_project = Projects[p_index];
 
     var l_video = document.getElementsByClassName("BackgroundVideo")[0]
+    l_video.pause();
+    l_video.currentTime = 0;
 
     if (l_video.src.includes(l_project.ProjectVideo)) {
-        l_video.pause();
-        l_video.currentTime = 0;
         l_video.load();
 
         ReloadCurrentProject(p_index);
